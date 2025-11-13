@@ -68,8 +68,6 @@ class ProfileController extends Controller
             'company_name' => $request->companyName,
             'wa_number' => $request->waNum,
         ]);
-        $googleSheetController = new GoogleSheetController();
-
-        $googleSheetController->copySpreadsheet();
+        return ['status' => 'success'];
     }
 }
