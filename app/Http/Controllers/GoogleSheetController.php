@@ -9,10 +9,11 @@ use Google\Service\Drive\DriveFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class GoogleSheetController extends Controller
 {
-    public function copySpreadsheet()
+    public function dashboard()
     {
         if(!isset(Auth::user()->sheet_file_id)){
             $companyName = Auth::user()->company_name;
@@ -61,14 +62,18 @@ class GoogleSheetController extends Controller
                 User::where('email','=',$email)->update([
                     'sheet_file_id' => $copiedFile->id
                 ]);
-                return Redirect::route('dashboard');
+                return Inertia::render('Dashboard',[
+                    'sheetId' => $copiedFile->id
+                ]);
             } catch (\Exception $e) {
                 return response()->json([
                     'error' => 'Failed to copy file: ' . $e->getMessage(),
                 ], 500);
             }
         }else{
-            return Redirect::route('dashboard');
+            return Inertia::render('Dashboard',[
+                'sheetId' => Auth::user()->sheet_file_id
+            ]);
         }
     }
 }

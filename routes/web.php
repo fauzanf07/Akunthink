@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\GoogleSheetController;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -16,9 +17,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [GoogleSheetController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/initialData', function () {
     return Inertia::render('InitialDataForm');
@@ -34,6 +33,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
-Route::get('/google/copy-sheet', [GoogleSheetController::class, 'copySpreadsheet']);
+Route::get('/google/copy-sheet', [GoogleSheetController::class, 'copySpreadsheet'])->name('google.copySpreadsheet');
 
 require __DIR__.'/auth.php';
