@@ -47,6 +47,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('https://accounts.google.com/Logout?continue=https://appengine.google.com/_ah/logout?continue=' . urlencode(url('/')));
     }
 }

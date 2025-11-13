@@ -13,7 +13,7 @@ class GenerateGoogleToken extends Command
     public function handle()
     {
         $client = new Client();
-        $client->setAuthConfig(storage_path('app/public/app/google/credentials.json'));
+        $client->setAuthConfig(storage_path('app/public/app/google/credential-akunthink-oauth.json'));
         $client->setScopes([
             \Google\Service\Drive::DRIVE_FILE,
             \Google\Service\Drive::DRIVE,
@@ -22,7 +22,7 @@ class GenerateGoogleToken extends Command
         $client->setPrompt('consent');
 
         // Get auth URL
-        $client->setRedirectUri('http://127.0.0.1:8000/auth/google/callback'); // 👈 Add this line
+        $client->setRedirectUri('http://127.0.0.1:8000'); // 👈 Add this line
         $authUrl = $client->createAuthUrl();
         $this->info("Open the following link in your browser:\n" . $authUrl);
 

@@ -2,65 +2,73 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Google\Client;
 use Google\Service\Drive;
 use Google\Service\Drive\DriveFile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class GoogleSheetController extends Controller
 {
     public function copySpreadsheet()
     {
-        $fileId = '1FADO-UwLDyainmudVKuXSJVAa-8it6xWJCGYz86l_lE'; // Source Spreadsheet ID
-        $newName = 'Copied Spreadsheet - ' . now()->format('Y-m-d H:i:s');
-
-        // Initialize Google Client
-        $client = new Client();
-        $client->setAuthConfig(storage_path('app/public/app/google/credentials.json')); // ✅ make sure this path is correct
-        $client->setScopes([Drive::DRIVE_FILE, Drive::DRIVE]);
-        $client->setAccessType('offline');
-
-        // ✅ Load the saved access token
-        $tokenPath = storage_path('app/google/token.json');
-        if (file_exists($tokenPath)) {
-            $accessToken = json_decode(file_get_contents($tokenPath), true);
-            $client->setAccessToken($accessToken);
-        } else {
-            return response()->json([
-                'error' => 'Access token not found. Please authenticate first.',
-            ], 400);
-        }
-
-        // ✅ Refresh token if expired
-        if ($client->isAccessTokenExpired()) {
-            if ($client->getRefreshToken()) {
-                $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
-                file_put_contents($tokenPath, json_encode($client->getAccessToken()));
+        if(!isset(Auth::user()->sheet_file_id)){
+            $companyName = Auth::user()->company_name;
+            $fileId = '1FADO-UwLDyainmudVKuXSJVAa-8it6xWJCGYz86l_lE'; // Source Spreadsheet ID
+            $newName = $companyName. ' - ' . now()->format('Y-m-d ');
+    
+            // Initialize Google Client
+            $client = new Client();
+            $client->setAuthConfig(storage_path('app/public/app/google/credential-akunthink-oauth.json')); // ✅ make sure this path is correct
+            $client->setScopes([Drive::DRIVE_FILE, Drive::DRIVE]);
+            $client->setAccessType('offline');
+    
+            // ✅ Load the saved access token
+            $tokenPath = storage_path('app/google/token.json');
+            if (file_exists($tokenPath)) {
+                $accessToken = json_decode(file_get_contents($tokenPath), true);
+                $client->setAccessToken($accessToken);
             } else {
-                return response()->json(['error' => 'Refresh token missing. Re-authenticate required.'], 401);
+                return response()->json([
+                    'error' => 'Access token not found. Please authenticate first.',
+                ], 400);
             }
-        }
-
-        // ✅ Create Drive service
-        $service = new Drive($client);
-
-        // ✅ Create new file metadata
-        $fileMetadata = new DriveFile([
-            'name' => $newName,
-        ]);
-
-        // ✅ Copy the file
-        try {
-            $copiedFile = $service->files->copy($fileId, $fileMetadata);
-            return response()->json([
-                'message' => 'File copied successfully!',
-                'file_id' => $copiedFile->id,
-                'file_link' => 'https://docs.google.com/spreadsheets/d/' . $copiedFile->id,
+    
+            // ✅ Refresh token if expired
+            if ($client->isAccessTokenExpired()) {
+                if ($client->getRefreshToken()) {
+                    $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
+                    file_put_contents($tokenPath, json_encode($client->getAccessToken()));
+                } else {
+                    return response()->json(['error' => 'Refresh token missing. Re-authenticate required.'], 401);
+                }
+            }
+    
+            // ✅ Create Drive service
+            $service = new Drive($client);
+    
+            // ✅ Create new file metadata
+            $fileMetadata = new DriveFile([
+                'name' => $newName,
             ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'error' => 'Failed to copy file: ' . $e->getMessage(),
-            ], 500);
+    
+            // ✅ Copy the file
+            try {
+                $copiedFile = $service->files->copy($fileId, $fileMetadata);
+                $email = Auth::user()->email;
+                User::where('email','=',$email)->update([
+                    'sheet_file_id' => $copiedFile->id
+                ]);
+                return Redirect::route('dashboard');
+            } catch (\Exception $e) {
+                return response()->json([
+                    'error' => 'Failed to copy file: ' . $e->getMessage(),
+                ], 500);
+            }
+        }else{
+            return Redirect::route('dashboard');
         }
     }
 }

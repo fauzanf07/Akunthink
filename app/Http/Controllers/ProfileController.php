@@ -59,7 +59,7 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return redirect('https://accounts.google.com/Logout?continue=https://appengine.google.com/_ah/logout?continue=' . urlencode(url('/')));
     }
 
     public function initialDataSave(Request $request){
@@ -68,7 +68,8 @@ class ProfileController extends Controller
             'company_name' => $request->companyName,
             'wa_number' => $request->waNum,
         ]);
-        return ['status' => 'success'];
-        
+        $googleSheetController = new GoogleSheetController();
+
+        $googleSheetController->copySpreadsheet();
     }
 }
