@@ -35,4 +35,16 @@ Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name(
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
 Route::get('/google/copy-sheet', [GoogleSheetController::class, 'copySpreadsheet'])->name('google.copySpreadsheet');
 
+
+Route::get('/blog', function () {
+    return Inertia::render('Blog/Index');
+});
+
+Route::get('/blog/{id}', function ($id) {
+    return Inertia::render('Blog/Show', [
+        'id' => $id
+    ]);
+});
+
+
 require __DIR__.'/auth.php';
