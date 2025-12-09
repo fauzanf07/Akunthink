@@ -1,6 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import { Button } from 'primevue';
 
 const props = defineProps({
     sheetId: {
@@ -9,7 +10,14 @@ const props = defineProps({
     },
 });
 
-console.log(props);
+const openForm = (sheetId) =>{
+    const link = 'https://script.google.com/macros/s/AKfycbx8DC0eKRVZwJavVg219y47Qmn3KcRFK8MlnqL1LZguuZAjcbKuJTHl957QU7kXdMC5/exec?id='+ sheetId;
+    window.open(link, '_blank');
+}
+const openSpreadsheet = (sheetId) =>{
+    const link = 'https://docs.google.com/spreadsheets/d/'+ sheetId;
+    window.open(link, '_blank');
+}
 </script>
 
 <template>
@@ -38,39 +46,27 @@ console.log(props);
                         </ul>
                     </div>
                     <div class="w-full mt-5">
-                        <table class="w-full">
-                            <thead>
-                                <tr>
-                                    <th class="border-2 border-black w-1/2 bg-green-300">Link Form</th>
-                                    <th class="border-2 border-black w-1/2 bg-green-300">Link Google Spreadsheet</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="p-5 border-2 border-black break-all">
-                                        <a
-                                            :href="'https://script.google.com/macros/s/AKfycbx8DC0eKRVZwJavVg219y47Qmn3KcRFK8MlnqL1LZguuZAjcbKuJTHl957QU7kXdMC5/exec?id='+sheetId"
-                                            class="text-blue-400 underline break-all"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            https://script.google.com/macros/s/AKfycbx8DC0eKRVZwJavVg219y47Qmn3KcRFK8MlnqL1LZguuZAjcbKuJTHl957QU7kXdMC5/exec?id={{sheetId}}
-                                        </a>
-                                    </td>
-
-                                    <td class="p-5 border-2 border-black break-all">
-                                        <a
-                                            :href="'https://docs.google.com/spreadsheets/d/'+sheetId"
-                                            class="text-blue-400 underline break-all"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            https://docs.google.com/spreadsheets/d/{{sheetId}}
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="flex flex-row gap-5">
+                            <Button label="Klik disini untuk menuju halaman Form" @click="openForm(sheetId)"/>
+                            <Button label="Klik disini untuk menuju halaman Google Spreadsheet" @click="openSpreadsheet(sheetId)"/>
+                        </div>
+                            <!-- <a
+                                :href="'https://script.google.com/macros/s/AKfycbx8DC0eKRVZwJavVg219y47Qmn3KcRFK8MlnqL1LZguuZAjcbKuJTHl957QU7kXdMC5/exec?id='+sheetId"
+                                class="text-blue-400 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://script.google.com/macros/s/AKfycbx8DC0eKRVZwJavVg219y47Qmn3KcRFK8MlnqL1LZguuZAjcbKuJTHl957QU7kXdMC5/exec?id={{sheetId}}
+                            </a> -->
+                    
+                            <!-- <a
+                                :href="'https://docs.google.com/spreadsheets/d/'+sheetId"
+                                class="text-blue-400 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://docs.google.com/spreadsheets/d/{{sheetId}}
+                            </a> -->
                     </div>
                 </div>
             </div>
