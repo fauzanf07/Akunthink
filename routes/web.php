@@ -15,7 +15,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
 
 Route::get('/dashboard', [GoogleSheetController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -38,13 +38,13 @@ Route::get('/google/copy-sheet', [GoogleSheetController::class, 'copySpreadsheet
 
 Route::get('/blog', function () {
     return Inertia::render('Blog/Index');
-});
+})->name('blog.index');
 
 Route::get('/blog/{id}', function ($id) {
     return Inertia::render('Blog/Show', [
         'id' => $id
     ]);
-});
+})->name('blog.show');
 
 
 require __DIR__.'/auth.php';
