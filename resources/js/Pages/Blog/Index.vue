@@ -29,7 +29,10 @@ function formatIndoDate(dateString) {
 
 onMounted(async () => {
     const res = await fetch('/api/blog')
-    docs.value = await res.json()
+    docs.value = await res.json();
+    docs.value.forEach(doc => {
+        doc.modifiedTime = doc.modifiedTime ? formatIndoDate(doc.modifiedTime) : doc.modifiedTime;
+    });
 
     if (docs.value.length) {
         const resBlog = await fetch('/api/blog/' + docs.value[0].id)
@@ -59,7 +62,8 @@ onMounted(async () => {
                         <h1 class="text-2xl font-bold mb-4">Blog</h1>
         
                         <ul class="space-y-2">
-                            <li v-for="doc in docs" :key="doc.id">
+                            <li v-for="doc in docs" :key="doc.id" class="border-2 p-3 rounded-md h-24 max-h-24  line-clamp-2 flex flex-col gap-1">
+                                <span class="font-bold text-sm">{{doc.modifiedTime}}</span>
                                 <Link :href="`/blog/${doc.id}`" class="text-blue-600 hover:underline">
                                     {{ doc.name }}
                                 </Link>
