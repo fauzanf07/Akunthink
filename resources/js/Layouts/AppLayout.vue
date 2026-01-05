@@ -15,6 +15,8 @@ const menuRoutes = (menu) =>{
     }
 }
 
+const url = window.location.href;
+
 </script>
 <template>
     <div class="flex flex-col">
@@ -27,15 +29,15 @@ const menuRoutes = (menu) =>{
                 </template>
                 <template #end>
                     <div class="flex flex-row gap-10  text-lg font-semibold">
-                        <div class="flex flex-row gap-3 items-center hover:text-[#EB8227] hover:cursor-pointer" @click="menuRoutes('home')">
+                        <div class="flex flex-row gap-3 items-center hover:text-[#EB8227] hover:cursor-pointer" :class="!url.includes('blog') && !url.includes('pricing')  ? 'text-[#EB8227]' : ''" @click="menuRoutes('home')">
                             <i class="pi pi-home" style="font-size: 1.4rem;"/>
                             <span class="mt-1">Home</span>
                         </div>
-                        <div class="flex flex-row gap-3 items-center hover:text-[#EB8227] hover:cursor-pointer mt-1" @click="menuRoutes('blog')">
+                        <div class="flex flex-row gap-3 items-center hover:text-[#EB8227] hover:cursor-pointer mt-1" :class="url.includes('blog') ? 'text-[#EB8227]' : ''" @click="menuRoutes('blog')">
                             <i class="pi pi-heart" style="font-size: 1.4rem;"/>
                             <span class="">Blog</span>
                         </div>
-                        <div class="flex flex-row gap-3 items-center hover:text-[#EB8227] hover:cursor-pointer mt-1" @click="menuRoutes('pricing')">
+                        <div class="flex flex-row gap-3 items-center hover:text-[#EB8227] hover:cursor-pointer mt-1" :class="url.includes('pricing') ? 'text-[#EB8227]' : ''" @click="menuRoutes('pricing')">
                             <i class="pi pi-tags" style="font-size: 1.4rem;"/>
                             <span class="">Pricing</span>
                         </div>
