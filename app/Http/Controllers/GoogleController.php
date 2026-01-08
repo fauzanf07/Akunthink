@@ -26,11 +26,13 @@ class GoogleController extends Controller
 
             if (!$user) {
                 // Create new user
+                $id = substr(bin2hex(random_bytes(8)), 0, 16);
                 $user = User::create([
                     'name' => $googleUser->getName(),
                     'email' => $googleUser->getEmail(),
                     'google_id' => $googleUser->getId(),
                     'password' => bcrypt(Str::random(16)), // random password
+                    'id_user' => $id
                 ]);
 
                 Auth::login($user);

@@ -8,10 +8,14 @@ const props = defineProps({
         type: String,
         default:  ''
     },
+    idUser: {
+        type: String,
+        default:  ''
+    },
 });
 
-const openForm = (sheetId) =>{
-    const link = 'https://script.google.com/macros/s/AKfycbx8DC0eKRVZwJavVg219y47Qmn3KcRFK8MlnqL1LZguuZAjcbKuJTHl957QU7kXdMC5/exec?id='+ sheetId;
+const openForm = (sheetId, idUser) =>{
+    const link = 'https://script.google.com/macros/s/AKfycbx8DC0eKRVZwJavVg219y47Qmn3KcRFK8MlnqL1LZguuZAjcbKuJTHl957QU7kXdMC5/exec?id='+ sheetId + '&' + idUser;
     window.open(link, '_blank');
 }
 const openSpreadsheet = (sheetId) =>{
@@ -47,7 +51,7 @@ const openSpreadsheet = (sheetId) =>{
                     </div>
                     <div class="w-full mt-5">
                         <div class="flex flex-row gap-5">
-                            <Button label="Klik disini untuk menuju halaman Form" @click="openForm(sheetId)"/>
+                            <Button label="Klik disini untuk menuju halaman Form" @click="openForm(sheetId, idUser)"/>
                             <Button label="Klik disini untuk menuju halaman Google Spreadsheet" @click="openSpreadsheet(sheetId)"/>
                         </div>
                             <!-- <a

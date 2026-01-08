@@ -72,7 +72,8 @@ class GoogleSheetController extends Controller
             }
         }else{
             return Inertia::render('Dashboard',[
-                'sheetId' => Auth::user()->sheet_file_id
+                'sheetId' => Auth::user()->sheet_file_id,
+                'idUser' => Auth::user()->id_user
             ]);
         }
     }
