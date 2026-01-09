@@ -15,7 +15,7 @@ const props = defineProps({
 });
 
 const openForm = (sheetId, idUser) =>{
-    const link = 'https://script.google.com/macros/s/AKfycbx8DC0eKRVZwJavVg219y47Qmn3KcRFK8MlnqL1LZguuZAjcbKuJTHl957QU7kXdMC5/exec?id='+ sheetId + '&' + idUser;
+    const link = 'https://script.google.com/macros/s/AKfycbx8DC0eKRVZwJavVg219y47Qmn3KcRFK8MlnqL1LZguuZAjcbKuJTHl957QU7kXdMC5/exec?id='+ sheetId + '$' + idUser;
     window.open(link, '_blank');
 }
 const openSpreadsheet = (sheetId) =>{
