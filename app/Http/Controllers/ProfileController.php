@@ -86,7 +86,7 @@ class ProfileController extends Controller
 
         $service->spreadsheets_values->append(
             $spreadsheetId,
-            'Sheet1!A:F', // only define the columns
+            'Users!A:G', // only define the columns
             $body,
             [
                 'valueInputOption' => 'RAW',
