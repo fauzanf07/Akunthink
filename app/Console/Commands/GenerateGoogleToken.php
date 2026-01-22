@@ -22,7 +22,7 @@ class GenerateGoogleToken extends Command
         $client->setPrompt('consent');
 
         // Get auth URL
-        $client->setRedirectUri('http://127.0.0.1:8000'); // 👈 Add this line
+        $client->setRedirectUri('http://akunthink.id'); // 👈 Add this line
         $authUrl = $client->createAuthUrl();
         $this->info("Open the following link in your browser:\n" . $authUrl);
 
