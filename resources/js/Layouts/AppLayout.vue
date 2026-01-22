@@ -28,7 +28,7 @@ const url = window.location.href;
                 <template #item>
                 </template>
                 <template #end>
-                    <div class="flex flex-row gap-10  text-lg font-semibold">
+                    <div class="flex flex-row gap-10  text-lg font-semibold phone:hidden">
                         <div class="flex flex-row gap-3 items-center hover:text-[#EB8227] hover:cursor-pointer" :class="!url.includes('blog') && !url.includes('pricing')  ? 'text-[#EB8227]' : ''" @click="menuRoutes('home')">
                             <i class="pi pi-home" style="font-size: 1.4rem;"/>
                             <span class="mt-1">Home</span>

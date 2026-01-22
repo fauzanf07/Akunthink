@@ -39,32 +39,35 @@ function loginWithGoogle() {
         <template #main>
             <Head title="Akunthink" />
             <div class="w-full flex flex-col items-center">
-                <div class="w-[70dvw]  flex items-center gap-10 pr-10">
-                    <img src="/storage/images/akunthink-illustration.jpg" width="650" />
-                    <div class=" flex flex-col gap-10 ">
-                        <span class="text-[#80da5a] text-6xl ">Tak perlu bayar software akuntansi mahal, kalau pakai Excel* juga bisa</span>
+                <div class="w-[70dvw]  flex items-center gap-10 pr-10 phone:flex-col phone:pr-3 phone:gap-5  phone:w-[90dvw]">
+                    <img src="/storage/images/akunthink-illustration.jpg" width="650" class="phone:!w-[100%]"/>
+                    <div class=" flex flex-col gap-10 phone:items-center ">
+                        <span class="text-[#80da5a] text-6xl phone:text-2xl text-center">Tak perlu bayar software akuntansi mahal, kalau pakai Excel* juga bisa</span>
                         <Button label="Mulai Coba" pt:root:class="w-64 bg-[#eb8227] border-[#eb8227] text-xl py-3" @click="loginWithGoogle"/>
                     </div>
                 </div>
-                <div class="w-[70dvw]  flex items-center gap-10 mt-7">
-                    <div class="grid grid-cols-2 gap-10 w-full">
-                        <div class=" col-span-1 px-10 py-5">
-                            <h1 class="text-5xl text-[#80da5a] font-bold">Apa itu AkunThink?</h1>
-                            <p class="mt-5 text-2xl w-[80%] leading-10">Diadaptasi dari kebiasaan <b>pemilik bisnis kecil</b> mencatat pembukuan dengan menggunakan aplikasi <b>spreadsheet</b> (Excel, Gsheets, dll).</p>
-                            <p class="mt-8 text-2xl w-[80%] leading-10">Lalu Kami buat dengan tambahan metode <b>Single Entry Modified</b>.  Hasilnya adalah aplikasi akuntansi yang <b>mudah</b> dipahami dan <b>cepat</b> dikerjakan.</p>
+                <div class="w-[70dvw]  flex items-center gap-10 mt-7 phone:flex-col phone:w-[90dvw]">
+                    <div class="grid grid-cols-2 gap-10 w-full phone:grid-cols-1">
+                        <div class=" col-span-1 px-10 py-5 phone:px-0 ">
+                            <h1 class="text-5xl text-[#80da5a] font-bold leading-[3.5rem]">Apa itu AkunThink?</h1>
+                            <p class="mt-5 text-2xl w-[80%] leading-10 phone:w-[100%] phone:text-justify phone:text-xl">Diadaptasi dari kebiasaan <b>pemilik bisnis kecil</b> mencatat pembukuan dengan menggunakan aplikasi <b>spreadsheet</b> (Excel, Gsheets, dll).</p>
+                            <p class="mt-5 text-2xl w-[80%] leading-10 phone:w-[100%] phone:text-justify phone:text-xl">Lalu Kami buat dengan tambahan metode <b>Single Entry Modified</b>.  Hasilnya adalah aplikasi akuntansi yang <b>mudah</b> dipahami dan <b>cepat</b> dikerjakan.</p>
                         </div>
-                        <div class=" col-span-1 pt-5">
-                            <div class="h-[30rem] bg-[url(/storage/images/akunthink-illustration-2.jpg)] rounded-l-[2rem] bg-[length:650px_auto] bg-[position:50%_40%] bg-no-repeat"></div>
+                        <div class=" col-span-1 pt-5 phone:pt-0">
+                            <div class="h-[30rem] bg-[url(/storage/images/akunthink-illustration-2.jpg)] 
+                            rounded-l-[2rem] bg-[length:650px_auto] bg-[position:50%_40%] bg-no-repeat
+                            phone:h-[22rem] phone:rounded-[1rem] phone:bg-[length:430px_auto] phone:bg-[position:40%_30%]
+                            "></div>
                         </div>
                     </div>
                 </div>
                 <div class="w-full  flex  flex-col justify-center items-center gap-10  bg-[#eb8227] py-12">
-                    <div class="w-[70dvw] flex  flex-col justify-center  gap-10 px-10">
-                        <div class="w-[50%] ">
-                            <h1 class="text-5xl leading-[3.5rem]">3 alasan AkunThink paling pas untuk bisnis kecil !! </h1>
+                    <div class="w-[70dvw] flex  flex-col justify-center  gap-10 px-10 phone:w-[90dvw] phone:justify-start phone:px-3">
+                        <div class="w-[50%] phone:w-[100%]">
+                            <h1 class="text-5xl leading-[3.5rem] phone:text-4xl">3 alasan AkunThink paling pas untuk bisnis kecil !! </h1>
                         </div>
-                        <div class="flex flex-row gap-12 w-full justify-center">
-                            <div class="flex flex-col ">
+                        <div class="flex flex-row gap-12 w-full justify-center phone:flex-col">
+                            <div class="flex flex-col phone:border phone:border-black phone:p-3 phone:rounded-md">
                                 <div class="flex justify-center">
                                     <div class="flex justify-center items-center w-28 h-28 border-8 rounded-full border-black">
                                         <span class="text-6xl font-bold">Rp</span>
@@ -73,7 +76,7 @@ function loginWithGoogle() {
                                 <h3 class="text-3xl mt-5">Murah dibanding software lainnya </h3>
                                 <span class="text-xl mt-3">Tak perlu bayar jutaan per tahun untuk berlangganan software akuntansi</span>
                             </div>
-                            <div class="flex flex-col">
+                            <div class="flex flex-col phone:border phone:border-black phone:p-3 phone:rounded-md">
                                 <div class="flex justify-center">
                                     <div class="flex justify-center items-center w-28 h-28 border-8 rounded-full border-black">
                                         <i class="pi pi-google text-6xl font-bold"/>
@@ -82,7 +85,7 @@ function loginWithGoogle() {
                                 <h3 class="text-3xl mt-5">Berbasis Platform Google Workspace </h3>
                                 <span class="text-xl mt-3">Jaminan keandalan dalam bekerja dan menyimpan data online</span>
                             </div>
-                            <div class="flex flex-col pl-6">
+                            <div class="flex flex-col pl-6 phone:border phone:border-black phone:p-3 phone:rounded-md">
                                 <div class="flex justify-center">
                                     <div class="flex justify-center items-center w-28 h-28 border-8 rounded-full border-black">
                                         <svg
@@ -168,14 +171,14 @@ function loginWithGoogle() {
                             </div>
                             <div class="flex flex-col gap-4">
                                 <div class="flex gap-3 items-end">
-                                    <div class="w-20 h-20 rounded-3xl bg-white"></div>
+                                    <div class="w-20 h-20 rounded-3xl bg-[url(/storage/images/rendang-sapi-uni-vivi.jpg)] bg-cover bg-center"></div>
                                     <h1 class="text-xl font-extrabold text-white">Rendang Sapi<br/> Uni Vivi</h1>
                                 </div>
                                 <p class="text-white">Produk kami biasanya dipesan pas ada event seperti arisan dan acara keluarga. Kami butuhnya aplikasi akuntansi yang mudah dan murah. Untung ada AkunThink!</p>
                             </div>
                             <div class="flex flex-col gap-4">
                                 <div class="flex gap-3 items-end">
-                                    <div class="w-20 h-20 rounded-3xl bg-white"></div>
+                                    <div class="w-20 h-20 rounded-3xl bg-[url(/storage/images/sambal-gledek.jpg)] bg-cover bg-center"></div>
                                     <h1 class="text-xl font-extrabold text-white">Sambal Gledeg<br/> BVJ Original</h1>
                                 </div>
                                 <p class="text-white">Buat kami yang berjualan online, AkunThink sangat membantu dalam mencatat transaksi penjualan dan pembelian bahan baku. Simpel dan mudah dipahami. </p>
