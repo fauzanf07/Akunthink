@@ -39,53 +39,79 @@ function loginWithGoogle() {
         <template #main>
             <Head title="Akunthink" />
             <div class="w-full flex flex-col items-center">
-                <div class="w-[70dvw]  flex items-center gap-10 pr-10 phone:flex-col phone:pr-3 phone:gap-5  phone:w-[90dvw]">
-                    <img src="/storage/images/akunthink-illustration.jpg" width="650" class="phone:!w-[100%]"/>
-                    <div class=" flex flex-col gap-10 phone:items-center ">
-                        <span class="text-[#80da5a] text-6xl phone:text-3xl text-center">Tak perlu bayar software akuntansi mahal, kalau pakai Excel* juga bisa</span>
+                <div class="w-[70dvw]  flex items-center gap-10 pr-10 
+                    phone:flex-col phone:pr-3 phone:gap-5 phone:w-[90dvw]
+                    phoneLg:flex-col phoneLg:pr-3 phoneLg:gap-5 phoneLg:w-[90dvw]
+                ">
+                    <img src="/storage/images/akunthink-illustration.jpg" width="650" class="
+                        phone:!w-[100%]
+                        phoneLg:!w-[85%]
+                    "/>
+                    <div class=" flex flex-col gap-10 phone:items-center items-center ">
+                        <span class="text-[#80da5a] text-6xl text-center
+                            phone:text-3xl
+                            phoneLg:text-4xl
+                        ">Tak perlu bayar software akuntansi mahal, kalau pakai Excel* juga bisa</span>
                         <Button label="Mulai Coba" pt:root:class="w-64 bg-[#eb8227] border-[#eb8227] text-xl py-3" @click="loginWithGoogle"/>
                     </div>
                 </div>
-                <div class="w-[70dvw]  flex items-center gap-10 mt-7 phone:flex-col phone:w-[90dvw]">
-                    <div class="grid grid-cols-2 gap-10 w-full phone:grid-cols-1">
+                <div class="w-[70dvw]  flex items-center gap-10 mt-7 
+                phone:flex-col phone:w-[90dvw]
+                phoneLg:flex-col phoneLg:w-[90dvw]">
+                    <div class="grid grid-cols-2 gap-10 w-full 
+                    phone:grid-cols-1 
+                    phoneLg:grid-cols-1">
                         <div class=" col-span-1 px-10 py-5 phone:px-0 ">
                             <h1 class="text-5xl text-[#80da5a] font-bold leading-[3.5rem]">Apa itu AkunThink?</h1>
-                            <p class="mt-5 text-2xl w-[80%] leading-10 phone:w-[100%] phone:text-justify phone:text-xl">Diadaptasi dari kebiasaan <b>pemilik bisnis kecil</b> mencatat pembukuan dengan menggunakan aplikasi <b>spreadsheet</b> (Excel, Gsheets, dll).</p>
-                            <p class="mt-5 text-2xl w-[80%] leading-10 phone:w-[100%] phone:text-justify phone:text-xl">Lalu Kami buat dengan tambahan metode <b>Single Entry Modified</b>.  Hasilnya adalah aplikasi akuntansi yang <b>mudah</b> dipahami dan <b>cepat</b> dikerjakan.</p>
+                            <p class="mt-5 text-2xl w-[80%] leading-10 
+                            phone:w-[100%] phone:text-justify phone:text-xl
+                            phoneLg:w-[100%] phoneLg:text-justify phoneLg:text-xl
+                            ">Diadaptasi dari kebiasaan <b>pemilik bisnis kecil</b> mencatat pembukuan dengan menggunakan aplikasi <b>spreadsheet</b> (Excel, Gsheets, dll).</p>
+                            <p class="mt-5 text-2xl w-[80%] leading-10 
+                            phone:w-[100%] phone:text-justify phone:text-xl
+                            phoneLg:w-[100%] phoneLg:text-justify phoneLg:text-xl">Lalu Kami buat dengan tambahan metode <b>Single Entry Modified</b>.  Hasilnya adalah aplikasi akuntansi yang <b>mudah</b> dipahami dan <b>cepat</b> dikerjakan.</p>
                         </div>
                         <div class=" col-span-1 pt-5 phone:pt-0">
                             <div class="h-[30rem] bg-[url(/storage/images/akunthink-illustration-2.jpg)] 
                             rounded-l-[2rem] bg-[length:650px_auto] bg-[position:50%_40%] bg-no-repeat
                             phone:h-[22rem] phone:rounded-[1rem] phone:bg-[length:430px_auto] phone:bg-[position:40%_30%]
+                            phoneLg:h-[22rem] phoneLg:rounded-[1rem] phoneLg:bg-[length:430px_auto] phoneLg:bg-[position:40%_30%]
                             "></div>
                         </div>
                     </div>
                 </div>
                 <div class="w-full  flex  flex-col justify-center items-center gap-10  bg-[#eb8227] py-12">
-                    <div class="w-[70dvw] flex  flex-col justify-center  gap-10 px-10 phone:w-[90dvw] phone:justify-start phone:px-3">
-                        <div class="w-[50%] phone:w-[100%]">
-                            <h1 class="text-5xl leading-[3.5rem] phone:text-4xl">3 alasan AkunThink paling pas untuk bisnis kecil !! </h1>
+                    <div class="w-[70dvw] flex  flex-col justify-center  gap-10 px-10 
+                    phone:w-[90dvw] phone:justify-start phone:px-3
+                    phoneLg:w-[90dvw] phoneLg:justify-start phoneLg:px-3
+                    ">
+                        <div class="w-[50%] phone:w-[100%] phoneLg:w-[100%]">
+                            <h1 class="text-5xl leading-[3.5rem] phone:text-4xl phoneLg:text-4xl">3 alasan AkunThink paling pas untuk bisnis kecil !! </h1>
                         </div>
-                        <div class="flex flex-row gap-12 w-full justify-center phone:flex-col">
+                        <div class="flex flex-row gap-12 w-full justify-center 
+                        phone:flex-col 
+                        phoneLg:grid phoneLg:grid-cols-2 phoneLg:gap-7">
                             <div class="flex flex-col phone:border phone:border-black phone:py-7 phone:rounded-md">
                                 <div class="flex justify-center">
                                     <div class="flex justify-center items-center w-28 h-28 border-8 rounded-full border-black">
                                         <span class="text-6xl font-bold">Rp</span>
                                     </div>
                                 </div>
-                                <h3 class="text-3xl mt-5 phone:text-center">Murah dibanding software lainnya </h3>
-                                <span class="text-xl mt-3 phone:text-center">Tak perlu bayar jutaan per tahun untuk berlangganan software akuntansi</span>
+                                <h3 class="text-3xl mt-5 phone:text-center phoneLg:text-start">Murah dibanding software lainnya </h3>
+                                <span class="text-xl mt-3 phone:text-center phoneLg:text-justify">Tak perlu bayar jutaan per tahun untuk berlangganan software akuntansi</span>
                             </div>
-                            <div class="flex flex-col phone:border phone:border-black phone:py-7 phone:rounded-md">
+                            <div class="flex flex-col phone:border phone:border-black phone:py-7 phone:rounded-md phoneLg:py-0">
                                 <div class="flex justify-center">
                                     <div class="flex justify-center items-center w-28 h-28 border-8 rounded-full border-black">
                                         <i class="pi pi-google text-6xl font-bold"/>
                                     </div>
                                 </div>
-                                <h3 class="text-3xl mt-5 phone:text-center">Berbasis Platform Google Workspace </h3>
-                                <span class="text-xl mt-3 phone:text-center">Jaminan keandalan dalam bekerja dan menyimpan data online</span>
+                                <h3 class="text-3xl mt-5 phone:text-center phoneLg:text-start">Berbasis Platform Google Workspace </h3>
+                                <span class="text-xl mt-3 phone:text-center phoneLg:text-justify">Jaminan keandalan dalam bekerja dan menyimpan data online</span>
                             </div>
-                            <div class="flex flex-col pl-6 phone:border phone:border-black phone:py-7 phone:pl-0 phone:rounded-md">
+                            <div class="flex flex-col pl-6 
+                            phone:border phone:border-black phone:py-7 phone:pl-0 phone:rounded-md
+                            phoneLg:py-0 phoneLg:pl-0">
                                 <div class="flex justify-center">
                                     <div class="flex justify-center items-center w-28 h-28 border-8 rounded-full border-black">
                                         <svg
@@ -104,8 +130,8 @@ function loginWithGoogle() {
         
                                     </div>
                                 </div>
-                                <h3 class="text-3xl mt-5 phone:text-center">Metode Input Transaksi Termudah </h3>
-                                <span class="text-xl mt-3 phone:text-center">Dibuat dengan metode single entry modified yang mengadaptasi Jurnal Kas</span>
+                                <h3 class="text-3xl mt-5 phone:text-center phoneLg:text-start">Metode Input Transaksi Termudah </h3>
+                                <span class="text-xl mt-3 phone:text-center phoneLg:text-justify">Dibuat dengan metode single entry modified yang mengadaptasi Jurnal Kas</span>
                             </div>
                         </div>
                     </div>
@@ -159,8 +185,10 @@ function loginWithGoogle() {
                     </div>
                 </div>
                 <div class="w-full  flex  flex-col justify-center items-center gap-10  bg-[#7ed957] py-12 mt-14">
-                    <div class="w-[70dvw] flex  flex-col justify-center  gap-10 px-10 items-center phone:w-[85dvw]">
-                        <h1 class="text-4xl text-white font-bold w-[30rem] text-center">Kata mereka yang sudah menggunakan AkunThink</h1>
+                    <div class="w-[70dvw] flex  flex-col justify-center  gap-10 px-10 phone:px-2 items-center phone:w-[85dvw] phone:gap-5">
+                        <div class=" w-full">
+                            <h1 class="text-4xl text-white font-bold w-[30rem] text-center phone:text-3xl phone:w-full">Kata mereka yang sudah menggunakan AkunThink</h1>
+                        </div>
                         <div class="grid grid-cols-3 w-full gap-7 mt-24 phone:flex phone:flex-col phone:mt-7">
                             <div class="flex flex-col gap-4 phone:border phone:border-white phone:p-4 phone:rounded-md">
                                 <div class="flex gap-3 items-end">
@@ -186,15 +214,15 @@ function loginWithGoogle() {
                         </div>
                     </div>
                 </div>
-                <div class="w-[70dvw]  flex items-center gap-10 px-10 py-10">
-                    <div class="grid grid-cols-2 w-full gap-7 phone:flex phone:flex-col">
-                        <div class="flex flex-col min-h-[30rem] justify-between ">
-                            <h1 class="text-5xl text-[#eb8227] font-bold leading-[3.5rem]">Jangan ragu <br/>kontak kami!</h1>
+                <div class="w-[70dvw]  flex items-center gap-10 px-10 py-10  phone:px-0 phone:w-[80dvw] phone:py-5">
+                    <div class="grid grid-cols-2 w-full gap-7 phone:flex phone:flex-col phone:gap-2">
+                        <div class="flex flex-col min-h-[30rem] justify-between phone:justify-start phone:items-center ">
+                            <h1 class="text-5xl text-[#eb8227] font-bold leading-[3.5rem]">Jangan ragu <br class="phone:hidden"/>kontak kami!</h1>
                             <img src="/storage/images/akunthink-logo.png" width="200" class="ml-4"/>
                             <Button label="Mulai Coba" pt:root:class="w-64 bg-[#eb8227] border-[#eb8227] text-xl py-3"/>
                         </div>
         
-                        <div class="flex flex-col min-h-[30rem] gap-16 ">
+                        <div class="flex flex-col min-h-[30rem] gap-16 phone:gap-10 ">
                             <div class="flex flex-col gap-2">
                                 <h1 class="text-4xl text-[#7ed957] font-bold">WA (chat only)</h1>
                                 <span class="text-2xl">0821-2660-6079</span>
