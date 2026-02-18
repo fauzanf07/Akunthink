@@ -63,7 +63,8 @@ class GoogleSheetController extends Controller
                     'sheet_file_id' => $copiedFile->id
                 ]);
                 return Inertia::render('Dashboard',[
-                    'sheetId' => $copiedFile->id
+                    'sheetId' => $copiedFile->id,
+                    'idUser' => Auth::user()->id_user
                 ]);
             } catch (\Exception $e) {
                 return response()->json([
